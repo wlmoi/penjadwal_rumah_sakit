@@ -4,6 +4,9 @@
 #include "jadwal.h"
 #include "file_io.h"
 
+// JALANKAN DENGAN
+// gcc -o penjadwal_rumah_sakit main.c dokter.c jadwal.c file_io.c
+// ./penjadwal_rumah_sakit
 int main() {
     struct Dokter dokter[DOKTER_MAKS];
     struct EntriJadwal jadwal[90]; // 30 hari * 3 shift
