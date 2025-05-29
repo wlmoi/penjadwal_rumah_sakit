@@ -5,6 +5,7 @@
 #define DOKTER_MAKS 100
 
 struct Dokter {
+    int id; // ID dokter
     char nama[NAMA_MAKS];
     int maks_shift_per_minggu;
     int preferensi[3]; // 0: pagi, 1: siang, 2: malam (0 = diinginkan, 1 = tidak diinginkan)

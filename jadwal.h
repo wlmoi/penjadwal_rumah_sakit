@@ -4,8 +4,9 @@
 #include "dokter.h"
 
 struct EntriJadwal {
-    char nama_dokter[NAMA_MAKS];
-    int shift; // 0: pagi, 1: siang, 2: malam
+    char pagi[NAMA_MAKS]; // Nama dokter untuk shift pagi
+    char siang[NAMA_MAKS]; // Nama dokter untuk shift siang
+    char malam[NAMA_MAKS]; // Nama dokter untuk shift malam
 };
 
 void buat_jadwal(struct Dokter *dokter, int jumlah_dokter, struct EntriJadwal *jadwal, int *jumlah_jadwal);

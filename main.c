@@ -4,12 +4,13 @@
 #include "jadwal.h"
 #include "file_io.h"
 
-// JALANKAN DENGAN
+// JALANKAN 
 // gcc -o penjadwal_rumah_sakit main.c dokter.c jadwal.c file_io.c
 // ./penjadwal_rumah_sakit
+
 int main() {
     struct Dokter dokter[DOKTER_MAKS];
-    struct EntriJadwal jadwal[90]; // 30 hari * 3 shift
+    struct EntriJadwal jadwal[30]; // 30 hari, masing-masing dengan pagi, siang, malam
     int jumlah_dokter = 0, jumlah_jadwal = 0;
     char nama_file[] = "daftar_dokter.csv";
     char nama_file_jadwal[] = "jadwal.csv";
@@ -54,7 +55,7 @@ int main() {
                 break;
             case 5:
                 buat_jadwal(dokter, jumlah_dokter, jadwal, &jumlah_jadwal);
-                printf("Jadwal dibuat untuk %d shift.\n", jumlah_jadwal);
+                printf("Jadwal dibuat untuk %d hari.\n", jumlah_jadwal);
                 break;
             case 6: {
                 int hari;
