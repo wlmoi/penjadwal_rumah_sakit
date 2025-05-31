@@ -10,7 +10,8 @@
 
 int main() {
     struct Dokter dokter[DOKTER_MAKS];
-    struct EntriJadwal jadwal[30]; // 30 hari, masing-masing dengan pagi, siang, malam
+    struct EntriJadwal jadwal[30];// 30 hari, masing-masing dengan pagi, siang, malam
+    struct PelanggaranDokter pelanggaran[DOKTER_MAKS];
     int jumlah_dokter = 0, jumlah_jadwal = 0;
     char nama_file[] = "daftar_dokter.csv";
     char nama_file_jadwal[] = "jadwal.csv";
@@ -54,7 +55,7 @@ int main() {
                 tampilkan_dokter(dokter, jumlah_dokter);
                 break;
             case 5:
-                buat_jadwal(dokter, jumlah_dokter, jadwal, &jumlah_jadwal);
+                buat_jadwal(dokter, jumlah_dokter, pelanggaran, jadwal, &jumlah_jadwal);
                 printf("Jadwal dibuat untuk %d hari.\n", jumlah_jadwal);
                 break;
             case 6: {
@@ -84,8 +85,7 @@ int main() {
                 tampilkan_jumlah_shift_dokter(dokter, jumlah_dokter);
                 break;
             case 10:
-                printf("Pelanggaran preferensi: %d\n",
-                       hitung_pelanggaran_preferensi(dokter, jumlah_dokter, jadwal, jumlah_jadwal));
+                tampilkan_pelanggaran(dokter, pelanggaran, jumlah_dokter);
                 break;
             case 11:
                 simpan_jadwal_ke_file(jadwal, jumlah_jadwal, nama_file_jadwal);
