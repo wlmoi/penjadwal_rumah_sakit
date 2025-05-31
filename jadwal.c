@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
 #include "jadwal.h"
 
 //Hitung pelanggaran dokter
@@ -72,13 +71,10 @@ int cari_dokter_terbaik(struct Dokter *dokter, int jumlah_dokter, int hari, int 
         }
         skor += pelanggaran[d].total_pelanggaran;
 
-        
         if (terpilih == -1 || skor < skor_sebelumnya) {
             terpilih = d;
             skor_sebelumnya = skor;
         }
-        printf("\n%s: %d: %d: %d\n%s\n",dokter[d].nama,pelanggaran[d].total_pelanggaran, skor_sebelumnya, skor, dokter[terpilih].nama);
-        
     }
 
     return terpilih;
