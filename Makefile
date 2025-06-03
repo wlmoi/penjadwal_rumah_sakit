@@ -6,7 +6,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -g
 
 # File sumber
-SRCS = main.c dokter.c jadwal.c file_io.c
+SRCS = main.c dokter.c jadwal.c file_io.c random_id.c
 
 # File objek
 OBJS = $(SRCS:.c=.o)

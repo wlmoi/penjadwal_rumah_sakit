@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "dokter.h"
+#include "random_id.h"
 
 // Menambahkan dokter baru ke daftar
 void tambah_dokter(struct Dokter *dokter, int *jumlah_dokter) {
@@ -9,7 +10,8 @@ void tambah_dokter(struct Dokter *dokter, int *jumlah_dokter) {
         return;
     }
     struct Dokter *d = &dokter[*jumlah_dokter];
-    d->id = *jumlah_dokter + 1; // ID otomatis berdasarkan jumlah dokter
+    //d->id = *jumlah_dokter + 1; // ID otomatis berdasarkan jumlah dokter
+    generate_random_numeric_id(&d->id, 1000, 9999);
     printf("Masukkan nama dokter: ");
     scanf(" %[^\n]", d->nama);
     printf("Masukkan maksimum shift per minggu: ");
