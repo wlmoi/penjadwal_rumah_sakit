@@ -9,6 +9,7 @@ void tambah_dokter(struct Dokter *dokter, int *jumlah_dokter) {
         return;
     }
     struct Dokter *d = &dokter[*jumlah_dokter];
+    d->id = *jumlah_dokter + 1; // ID otomatis berdasarkan jumlah dokter
     printf("Masukkan nama dokter: ");
     scanf(" %[^\n]", d->nama);
     printf("Masukkan maksimum shift per minggu: ");
@@ -46,8 +47,8 @@ void hapus_dokter(struct Dokter *dokter, int *jumlah_dokter, char *nama) {
 void tampilkan_dokter(struct Dokter *dokter, int jumlah_dokter) {
     printf("\nDaftar Dokter:\n");
     for (int i = 0; i < jumlah_dokter; i++) {
-        printf("Nama: %s, Maks Shift/Minggu: %d, Preferensi (Pagi, Siang, Malam): %d, %d, %d\n",
-               dokter[i].nama, dokter[i].maks_shift_per_minggu,
+        printf("ID: %d, Nama: %s, Maks Shift/Minggu: %d, Preferensi (Pagi, Siang, Malam): %d, %d, %d\n",
+               dokter[i].id, dokter[i].nama, dokter[i].maks_shift_per_minggu,
                dokter[i].preferensi[0], dokter[i].preferensi[1], dokter[i].preferensi[2]);
     }
 }
