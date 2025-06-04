@@ -13,7 +13,7 @@ int main() {
     struct EntriJadwal jadwal[30];// 30 hari, masing-masing dengan pagi, siang, malam
     struct PelanggaranDokter pelanggaran[DOKTER_MAKS];
     int jumlah_dokter = 0, jumlah_jadwal = 0;
-    char nama_file[] = "daftar_dokter.csv";
+    char nama_file_dokter[] = "dokter.csv";
     char nama_file_jadwal[] = "jadwal.csv";
     int pilihan;
 
@@ -30,15 +30,16 @@ int main() {
         printf("9. Tampilkan jumlah shift dokter\n");
         printf("10. Tampilkan pelanggaran preferensi\n");
         printf("11. Simpan jadwal ke file\n");
-        printf("12. Keluar\n");
+        printf("12. Simpan daftar dokter ke file\n");
+        printf("13. Keluar\n");
         printf("Masukkan pilihan: ");
         scanf("%d", &pilihan);
 
-        if (pilihan == 12) break;
+        if (pilihan == 13) break;
 
         switch (pilihan) {
             case 1:
-                jumlah_dokter = baca_dokter_dari_file(dokter, nama_file);
+                jumlah_dokter = baca_dokter_dari_file(dokter, nama_file_dokter);
                 printf("Berhasil membaca %d dokter dari file.\n", jumlah_dokter);
                 break;
             case 2:
@@ -89,6 +90,9 @@ int main() {
                 break;
             case 11:
                 simpan_jadwal_ke_file(jadwal, jumlah_jadwal, nama_file_jadwal);
+                break;
+            case 12:
+                simpan_dokter_ke_file(dokter, jumlah_dokter, nama_file_dokter);
                 break;
             default:
                 printf("Pilihan tidak valid.\n");

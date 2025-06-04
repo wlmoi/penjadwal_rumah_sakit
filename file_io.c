@@ -73,3 +73,29 @@ void simpan_jadwal_ke_file(struct EntriJadwal *jadwal, int jumlah_jadwal, const 
     fclose(file);
     printf("Jadwal disimpan ke %s\n", nama_file);
 }
+
+// Menyimpan daftar dokter ke file CSV dalam format persis sesuai header contoh
+void simpan_dokter_ke_file(struct Dokter *dokter, int jumlah_dokter, const char *nama_file) {
+    FILE *file = fopen(nama_file, "w");
+    if (!file) {
+        printf("Tidak dapat membuka file %s\n", nama_file);
+        return;
+    }
+
+    // Header CSV sesuai contoh yang kamu berikan
+    fprintf(file, "id,Nama,MaksShiftPerMinggu,PagiPref,SiangPref,MalamPref\n");
+
+    // Tulis data setiap dokter
+    for (int i = 0; i < jumlah_dokter; i++) {
+        fprintf(file, "%d,%s,%d,%d,%d,%d\n",
+                dokter[i].id,
+                dokter[i].nama,
+                dokter[i].maks_shift_per_minggu,
+                dokter[i].preferensi[0],
+                dokter[i].preferensi[1],
+                dokter[i].preferensi[2]);
+    }
+
+    fclose(file);
+    printf("Daftar dokter disimpan ke %s\n", nama_file);
+}
