@@ -26,23 +26,27 @@ void tambah_dokter(struct Dokter *dokter, int *jumlah_dokter) {
     printf("Dokter berhasil ditambahkan.\n");
 }
 
-// Menghapus dokter berdasarkan nama
-void hapus_dokter(struct Dokter *dokter, int *jumlah_dokter, char *nama) {
+// Menghapus dokter berdasarkan ID
+void hapus_dokter(struct Dokter *dokter, int *jumlah_dokter, int id) {
     int indeks = -1;
     for (int i = 0; i < *jumlah_dokter; i++) {
-        if (strcmp(dokter[i].nama, nama) == 0) {
+        if (dokter[i].id == id) {
             indeks = i;
             break;
         }
     }
+
     if (indeks == -1) {
-        printf("Dokter tidak ditemukan.\n");
+        printf("Dokter dengan ID %d tidak ditemukan.\n", id);
         return;
     }
-    for (int i = indeks; i < *jumlah_dokter - 1; i++)
+
+    for (int i = indeks; i < *jumlah_dokter - 1; i++) {
         dokter[i] = dokter[i + 1];
+    }
+
     (*jumlah_dokter)--;
-    printf("Dokter berhasil dihapus.\n");
+    printf("Dokter dengan ID %d berhasil dihapus.\n", id);
 }
 
 // Menampilkan semua dokter

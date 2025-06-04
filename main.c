@@ -45,12 +45,12 @@ int main() {
                 tambah_dokter(dokter, &jumlah_dokter);
                 break;
             case 3: {
-                char nama[NAMA_MAKS];
-                printf("Masukkan nama dokter yang akan dihapus: ");
-                scanf(" %[^\n]", nama);
-                hapus_dokter(dokter, &jumlah_dokter, nama);
+                int id;
+                printf("Masukkan ID dokter yang akan dihapus: ");
+                scanf("%d", &id);
+                hapus_dokter(dokter, &jumlah_dokter, id);
                 break;
-            }
+                }   
             case 4:
                 tampilkan_dokter(dokter, jumlah_dokter);
                 break;

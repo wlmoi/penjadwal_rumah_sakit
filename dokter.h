@@ -14,7 +14,7 @@ struct Dokter {
 };
 
 void tambah_dokter(struct Dokter *dokter, int *jumlah_dokter);
-void hapus_dokter(struct Dokter *dokter, int *jumlah_dokter, char *nama);
+void hapus_dokter(struct Dokter *dokter, int *jumlah_dokter, int id);
 void tampilkan_dokter(struct Dokter *dokter, int jumlah_dokter);
 int baca_dokter_dari_file(struct Dokter *dokter, const char *nama_file);
 
